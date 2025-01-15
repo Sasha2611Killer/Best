@@ -2805,16 +2805,16 @@ function library:CreateWindow(name, size, hidebutton)
 				return keybind
 			end
 
-			function sector:NewDD(text, items, default, multichoice, callback, flag)
+			function sector:NewDD(Teptx, itomsi, defult, multabang, calbank, ffl)
 				local dropdown = {}
 
-				dropdown.text = text or ""
-				dropdown.defaultitems = items or {}
-				dropdown.default = default
-				dropdown.callback = callback or function() end
-				dropdown.multichoice = multichoice or false
+				dropdown.text = Teptx or ""
+				dropdown.defaultitems = itomsi or {}
+				dropdown.default = defult
+				dropdown.callback = calbank or function() end
+				dropdown.multichoice = multabang or false
 				dropdown.values = {}
-				dropdown.flag = flag or text or ""
+				dropdown.flag = ffl or Teptx or ""
 
 				dropdown.MainBack = Instance.new("Frame", sector.Items)
 				dropdown.MainBack.Name = "backlabel"
