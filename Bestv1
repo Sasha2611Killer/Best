@@ -834,12 +834,12 @@ function library:CreateWindow(name, size, hidebutton)
 				function toggle:Addbezdar(items, default, multichoice, callback, flag)
 					local bezdar = {}
 
-					bezdar.defaultitems = items or {}
-					bezdar.default = default
-					bezdar.callback = callback or function() end
-					bezdar.multichoice = multichoice or false
-					bezdar.values = {}
-					bezdar.flag = flag or ((toggle.text or "") .. #sector.Items:GetChildren() .. "a")
+					bezdar.defatitoms = items or {}
+					bezdar.defolt = default
+					bezdar.colbank = callback or function() end
+					bezdar.multiki = multichoice or false
+					bezdar.valutarussia = {}
+					bezdar.russki = flag or ((toggle.text or "") .. #sector.Items:GetChildren() .. "a")
 
 					bezdar.Main = Instance.new("TextButton", sector.Items)
 					bezdar.Main.Name = "bezdar"
@@ -990,12 +990,12 @@ function library:CreateWindow(name, size, hidebutton)
 					bezdar.IgnoreBackButtons.Visible = false
 					bezdar.IgnoreBackButtons.AutoButtonColor = false
 
-					if bezdar.flag and bezdar.flag ~= "" then
-						library.flags[bezdar.flag] = bezdar.multichoice and {bezdar.default or bezdar.defaultitems[1] or ""} or (bezdar.default or bezdar.defaultitems[1] or "")
+					if bezdar.russki and bezdar.russki ~= "" then
+						library.flags[bezdar.russki] = bezdar.multiki and {bezdar.defolt or bezdar.defatitoms[1] or ""} or (bezdar.defolt or bezdar.defatitoms[1] or "")
 					end
 
 					function bezdar:isSelected(item)
-						for i, v in (bezdar.values) do
+						for i, v in (bezdar.valutarussia) do
 							if v == item then
 								return true
 							end
@@ -1014,23 +1014,23 @@ function library:CreateWindow(name, size, hidebutton)
 					bezdar.Changed = Instance.new("BindableEvent")
 					function bezdar:Set(value)
 						if type(value) == "table" then
-							bezdar.values = value
+							bezdar.valutarussia = value
 							bezdar:updateText(table.concat(value, ", "))
-							pcall(bezdar.callback, value)
+							pcall(bezdar.colbank, value)
 						else
 							bezdar:updateText(value)
-							bezdar.values = {value}
-							pcall(bezdar.callback, value)
+							bezdar.valutarussia = {value}
+							pcall(bezdar.colbank, value)
 						end
 
 						bezdar.Changed:Fire(value)
-						if bezdar.flag and bezdar.flag ~= "" then
-							library.flags[bezdar.flag] = bezdar.multichoice and bezdar.values or bezdar.values[1]
+						if bezdar.russki and bezdar.russki ~= "" then
+							library.flags[bezdar.russki] = bezdar.multiki and bezdar.valutarussia or bezdar.valutarussia[1]
 						end
 					end
 
 					function bezdar:Get()
-						return bezdar.multichoice and bezdar.values or bezdar.values[1]
+						return bezdar.multiki and bezdar.valutarussia or bezdar.valutarussia[1]
 					end
 
 					bezdar.items = {}
@@ -1052,17 +1052,17 @@ function library:CreateWindow(name, size, hidebutton)
 						bezdar.ItemsFrame.CanvasSize = bezdar.ItemsFrame.CanvasSize + UDim2.fromOffset(0, Item.AbsoluteSize.Y)
 
 						Item.MouseButton1Down:Connect(function()
-							if bezdar.multichoice then
+							if bezdar.multiki then
 								if bezdar:isSelected(v) then
-									for i2, v2 in (bezdar.values) do
+									for i2, v2 in (bezdar.valutarussia) do
 										if v2 == v then
-											table.remove(bezdar.values, i2)
+											table.remove(bezdar.valutarussia, i2)
 										end
 									end
-									bezdar:Set(bezdar.values)
+									bezdar:Set(bezdar.valutarussia)
 								else
-									table.insert(bezdar.values, v)
-									bezdar:Set(bezdar.values)
+									table.insert(bezdar.valutarussia, v)
+									bezdar:Set(bezdar.valutarussia)
 								end
 
 								return
@@ -1083,7 +1083,7 @@ function library:CreateWindow(name, size, hidebutton)
 						end)
 
 						runservice.RenderStepped:Connect(function()
-							if bezdar.multichoice and bezdar:isSelected(v) or bezdar.values[1] == v then
+							if bezdar.multiki and bezdar:isSelected(v) or bezdar.valutarussia[1] == v then
 								Item.BackgroundColor3 = Color3.fromRGB(64, 64, 64)
 								Item.TextColor3 = window.theme.accentcolor
 								Item.Text = " " .. v
@@ -1125,12 +1125,12 @@ function library:CreateWindow(name, size, hidebutton)
 						end
 					end
 
-					for i, v in (bezdar.defaultitems) do
+					for i, v in (bezdar.defatitoms) do
 						bezdar:Add(v)
 					end
 
-					if bezdar.default then
-						bezdar:Set(bezdar.default)
+					if bezdar.defolt then
+						bezdar:Set(bezdar.defolt)
 					end
 
 					local MouseButton1Down = function()
@@ -2285,12 +2285,12 @@ function library:CreateWindow(name, size, hidebutton)
 				function colorpicker:Addbezdar(items, default, multichoice, callback, flag)
 					local bezdar = { }
 
-					bezdar.defaultitems = items or { }
-					bezdar.default = default
-					bezdar.callback = callback or function() end
-					bezdar.multichoice = multichoice or false
-					bezdar.values = { }
-					bezdar.flag = flag or ((colorpicker.text or "") .. tostring( #(sector.Items:GetChildren()) ))
+					bezdar.defatitoms = items or { }
+					bezdar.defolt = default
+					bezdar.colbank = callback or function() end
+					bezdar.multiki = multichoice or false
+					bezdar.valutarussia = { }
+					bezdar.russki = flag or ((colorpicker.text or "") .. tostring( #(sector.Items:GetChildren()) ))
 
 					bezdar.Main = Instance.new("TextButton", sector.Items)
 					bezdar.Main.Name = "bezdar"
@@ -2440,12 +2440,12 @@ function library:CreateWindow(name, size, hidebutton)
 					bezdar.IgnoreBackButtons.Visible = false
 					bezdar.IgnoreBackButtons.AutoButtonColor = false
 
-					if bezdar.flag and bezdar.flag ~= "" then
-						library.flags[bezdar.flag] = bezdar.multichoice and { bezdar.default or bezdar.defaultitems[1] or "" } or (bezdar.default or bezdar.defaultitems[1] or "")
+					if bezdar.russki and bezdar.russki ~= "" then
+						library.flags[bezdar.russki] = bezdar.multiki and { bezdar.defolt or bezdar.defatitoms[1] or "" } or (bezdar.defolt or bezdar.defatitoms[1] or "")
 					end
 
 					function bezdar:isSelected(item)
-						for i, v in (bezdar.values) do
+						for i, v in (bezdar.valutarussia) do
 							if v == item then
 								return true
 							end
@@ -2463,23 +2463,23 @@ function library:CreateWindow(name, size, hidebutton)
 					bezdar.Changed = Instance.new("BindableEvent")
 					function bezdar:Set(value)
 						if type(value) == "table" then
-							bezdar.values = value
+							bezdar.valutarussia = value
 							bezdar:updateText(table.concat(value, ", "))
-							pcall(bezdar.callback, value)
+							pcall(bezdar.colbank, value)
 						else
 							bezdar:updateText(value)
-							bezdar.values = { value }
-							pcall(bezdar.callback, value)
+							bezdar.valutarussia = { value }
+							pcall(bezdar.colbank, value)
 						end
 
 						bezdar.Changed:Fire(value)
-						if bezdar.flag and bezdar.flag ~= "" then
-							library.flags[bezdar.flag] = bezdar.multichoice and bezdar.values or bezdar.values[1]
+						if bezdar.russki and bezdar.russki ~= "" then
+							library.flags[bezdar.russki] = bezdar.multiki and bezdar.valutarussia or bezdar.valutarussia[1]
 						end
 					end
 
 					function bezdar:Get()
-						return bezdar.multichoice and bezdar.values or bezdar.values[1]
+						return bezdar.multiki and bezdar.valutarussia or bezdar.valutarussia[1]
 					end
 
 					bezdar.items = { }
@@ -2501,17 +2501,17 @@ function library:CreateWindow(name, size, hidebutton)
 						bezdar.ItemsFrame.CanvasSize = bezdar.ItemsFrame.CanvasSize + UDim2.fromOffset(0, Item.AbsoluteSize.Y)
 
 						Item.MouseButton1Down:Connect(function()
-							if bezdar.multichoice then
+							if bezdar.multiki then
 								if bezdar:isSelected(v) then
-									for i2, v2 in (bezdar.values) do
+									for i2, v2 in (bezdar.valutarussia) do
 										if v2 == v then
-											table.remove(bezdar.values, i2)
+											table.remove(bezdar.valutarussia, i2)
 										end
 									end
-									bezdar:Set(bezdar.values)
+									bezdar:Set(bezdar.valutarussia)
 								else
-									table.insert(bezdar.values, v)
-									bezdar:Set(bezdar.values)
+									table.insert(bezdar.valutarussia, v)
+									bezdar:Set(bezdar.valutarussia)
 								end
 
 								return
@@ -2531,7 +2531,7 @@ function library:CreateWindow(name, size, hidebutton)
 						end)
 
 						runservice.RenderStepped:Connect(function()
-							if bezdar.multichoice and bezdar:isSelected(v) or bezdar.values[1] == v then
+							if bezdar.multiki and bezdar:isSelected(v) or bezdar.valutarussia[1] == v then
 								Item.BackgroundColor3 = Color3.fromRGB(64, 64, 64)
 								Item.TextColor3 = window.theme.accentcolor
 								Item.Text = " " .. v
@@ -2573,12 +2573,12 @@ function library:CreateWindow(name, size, hidebutton)
 						end
 					end 
 
-					for i,v in (bezdar.defaultitems) do
+					for i,v in (bezdar.defatitoms) do
 						bezdar:Add(v)
 					end
 
-					if bezdar.default then
-						bezdar:Set(bezdar.default)
+					if bezdar.defolt then
+						bezdar:Set(bezdar.defolt)
 					end
 
 					local MouseButton1Down = function()
@@ -2808,13 +2808,13 @@ function library:CreateWindow(name, size, hidebutton)
 			function sector:NewDD(Teptx, itomsi, defult, multabang, calbank, ffl)
 				local bezdar = {}
 
-				bezdar.text = Teptx or ""
-				bezdar.defaultitems = itomsi or {}
-				bezdar.default = defult
-				bezdar.callback = calbank or function() end
-				bezdar.multichoice = multabang or false
-				bezdar.values = {}
-				bezdar.flag = ffl or Teptx or ""
+				bezdar.tox1t = Teptx or ""
+				bezdar.defatitoms = itomsi or {}
+				bezdar.defolt = defult
+				bezdar.colbank = calbank or function() end
+				bezdar.multiki = multabang or false
+				bezdar.valutarussia = {}
+				bezdar.russki = ffl or Teptx or ""
 
 				bezdar.MainBack = Instance.new("Frame", sector.Items)
 				bezdar.MainBack.Name = "backlabel"
@@ -2829,7 +2829,7 @@ function library:CreateWindow(name, size, hidebutton)
 				bezdar.Label.Size = UDim2.fromOffset(sector.Main.Size.X.Offset - 12, 10)
 				bezdar.Label.Position = UDim2.fromOffset(0, 0)
 				bezdar.Label.Font = window.theme.font
-				bezdar.Label.Text = bezdar.text
+				bezdar.Label.Text = bezdar.tox1t
 				bezdar.Label.ZIndex = 4
 				bezdar.Label.TextColor3 = window.theme.itemscolor
 				bezdar.Label.TextSize = 15
@@ -2868,7 +2868,7 @@ function library:CreateWindow(name, size, hidebutton)
 				bezdar.SelectedLabel.Position = UDim2.fromOffset(5, 2)
 				bezdar.SelectedLabel.Size = UDim2.fromOffset(130, 13)
 				bezdar.SelectedLabel.Font = window.theme.font
-				bezdar.SelectedLabel.Text = bezdar.text
+				bezdar.SelectedLabel.Text = bezdar.tox1t
 				bezdar.SelectedLabel.ZIndex = 5
 				bezdar.SelectedLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 				bezdar.SelectedLabel.TextSize = 15
@@ -2989,12 +2989,12 @@ function library:CreateWindow(name, size, hidebutton)
 				bezdar.IgnoreBackButtons.Visible = false
 				bezdar.IgnoreBackButtons.AutoButtonColor = false
 
-				if bezdar.flag and bezdar.flag ~= "" then
-					library.flags[bezdar.flag] = bezdar.multichoice and {bezdar.default or bezdar.defaultitems[1] or ""} or (bezdar.default or bezdar.defaultitems[1] or "")
+				if bezdar.russki and bezdar.russki ~= "" then
+					library.flags[bezdar.russki] = bezdar.multiki and {bezdar.defolt or bezdar.defatitoms[1] or ""} or (bezdar.defolt or bezdar.defatitoms[1] or "")
 				end
 
 				function bezdar:isSelected(item)
-					for i, v in (bezdar.values) do
+					for i, v in (bezdar.valutarussia) do
 						if v == item then
 							return true
 						end
@@ -3004,7 +3004,7 @@ function library:CreateWindow(name, size, hidebutton)
 				end
 
 				function bezdar:GetOptions()
-					return bezdar.values
+					return bezdar.valutarussia
 				end
 
 				function bezdar:updateText(text)
@@ -3017,23 +3017,23 @@ function library:CreateWindow(name, size, hidebutton)
 				bezdar.Changed = Instance.new("BindableEvent")
 				function bezdar:Set(value)
 					if type(value) == "table" then
-						bezdar.values = value
+						bezdar.valutarussia = value
 						bezdar:updateText(table.concat(value, ", "))
-						pcall(bezdar.callback, value)
+						pcall(bezdar.colbank, value)
 					else
 						bezdar:updateText(value)
-						bezdar.values = {value}
-						pcall(bezdar.callback, value)
+						bezdar.valutarussia = {value}
+						pcall(bezdar.colbank, value)
 					end
 
 					bezdar.Changed:Fire(value)
-					if bezdar.flag and bezdar.flag ~= "" then
-						library.flags[bezdar.flag] = bezdar.multichoice and bezdar.values or bezdar.values[1]
+					if bezdar.russki and bezdar.russki ~= "" then
+						library.flags[bezdar.russki] = bezdar.multiki and bezdar.valutarussia or bezdar.valutarussia[1]
 					end
 				end
 
 				function bezdar:Get()
-					return bezdar.multichoice and bezdar.values or bezdar.values[1]
+					return bezdar.multiki and bezdar.valutarussia or bezdar.valutarussia[1]
 				end
 
 				bezdar.items = {}
@@ -3055,17 +3055,17 @@ function library:CreateWindow(name, size, hidebutton)
 					bezdar.ItemsFrame.CanvasSize = bezdar.ItemsFrame.CanvasSize + UDim2.fromOffset(0, Item.AbsoluteSize.Y)
 
 					Item.MouseButton1Down:Connect(function()
-						if bezdar.multichoice then
+						if bezdar.multiki then
 							if bezdar:isSelected(v) then
-								for i2, v2 in (bezdar.values) do
+								for i2, v2 in (bezdar.valutarussia) do
 									if v2 == v then
-										table.remove(bezdar.values, i2)
+										table.remove(bezdar.valutarussia, i2)
 									end
 								end
-								bezdar:Set(bezdar.values)
+								bezdar:Set(bezdar.valutarussia)
 							else
-								table.insert(bezdar.values, v)
-								bezdar:Set(bezdar.values)
+								table.insert(bezdar.valutarussia, v)
+								bezdar:Set(bezdar.valutarussia)
 							end
 
 							return
@@ -3086,7 +3086,7 @@ function library:CreateWindow(name, size, hidebutton)
 					end)
 
 					runservice.RenderStepped:Connect(function()
-						if bezdar.multichoice and bezdar:isSelected(v) or bezdar.values[1] == v then
+						if bezdar.multiki and bezdar:isSelected(v) or bezdar.valutarussia[1] == v then
 							Item.BackgroundColor3 = Color3.fromRGB(64, 64, 64)
 							Item.TextColor3 = window.theme.accentcolor
 							Item.Text = " " .. v
@@ -3128,12 +3128,12 @@ function library:CreateWindow(name, size, hidebutton)
 					end
 				end
 
-				for i, v in (bezdar.defaultitems) do
+				for i, v in (bezdar.defatitoms) do
 					bezdar:Add(v)
 				end
 
-				if bezdar.default then
-					bezdar:Set(bezdar.default)
+				if bezdar.defolt then
+					bezdar:Set(bezdar.defolt)
 				end
 
 				local MouseButton1Down = function()
