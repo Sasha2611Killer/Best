@@ -2886,11 +2886,11 @@ function library:CreateWindow(name, size, hidebutton)
 				bezdar.Nav.Rotation = 90
 				bezdar.Nav.ZIndex = 5
 				bezdar.Nav.Size = UDim2.fromOffset(8, 8)
-				bezdar.Nav.Image = "rbxassetid://4918373417"
+				bezdar.Nav.Image = "rbxassetid://"
 				bezdar.Nav.ImageColor3 = Color3.fromRGB(210, 210, 210)
 
 				bezdar.BlackOutline2 = Instance.new("Frame", bezdar.Main)
-				bezdar.BlackOutline2.Name = "blackline"
+				bezdar.BlackOutline2.Name = "wow"
 				bezdar.BlackOutline2.ZIndex = 4
 				bezdar.BlackOutline2.Size = bezdar.Main.Size + UDim2.fromOffset(6, 6)
 				bezdar.BlackOutline2.BorderSizePixel = 0
@@ -2901,7 +2901,7 @@ function library:CreateWindow(name, size, hidebutton)
 				end)
 
 				bezdar.Outline = Instance.new("Frame", bezdar.Main)
-				bezdar.Outline.Name = "blackline"
+				bezdar.Outline.Name = "what"
 				bezdar.Outline.ZIndex = 4
 				bezdar.Outline.Size = bezdar.Main.Size + UDim2.fromOffset(4, 4)
 				bezdar.Outline.BorderSizePixel = 0
@@ -2912,7 +2912,7 @@ function library:CreateWindow(name, size, hidebutton)
 				end)
 
 				bezdar.BlackOutline = Instance.new("Frame", bezdar.Main)
-				bezdar.BlackOutline.Name = "blackline"
+				bezdar.BlackOutline.Name = "blaknane"
 				bezdar.BlackOutline.ZIndex = 4
 				bezdar.BlackOutline.Size = bezdar.Main.Size + UDim2.fromOffset(2, 2)
 				bezdar.BlackOutline.BorderSizePixel = 0
@@ -2923,7 +2923,7 @@ function library:CreateWindow(name, size, hidebutton)
 				end)
 
 				bezdar.ItemsFrame = Instance.new("ScrollingFrame", bezdar.Main)
-				bezdar.ItemsFrame.Name = "itemsframe"
+				bezdar.ItemsFrame.Name = "itomsfrome"
 				bezdar.ItemsFrame.BorderSizePixel = 0
 				bezdar.ItemsFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 				bezdar.ItemsFrame.Position = UDim2.fromOffset(0, bezdar.Main.Size.Y.Offset + 8)
@@ -2944,7 +2944,7 @@ function library:CreateWindow(name, size, hidebutton)
 				bezdar.ListPadding.PaddingRight = UDim.new(0, 2)
 
 				bezdar.BlackOutline2Items = Instance.new("Frame", bezdar.Main)
-				bezdar.BlackOutline2Items.Name = "blackline"
+				bezdar.BlackOutline2Items.Name = "block"
 				bezdar.BlackOutline2Items.ZIndex = 7
 				bezdar.BlackOutline2Items.Size = bezdar.ItemsFrame.Size + UDim2.fromOffset(6, 6)
 				bezdar.BlackOutline2Items.BorderSizePixel = 0
@@ -2956,7 +2956,7 @@ function library:CreateWindow(name, size, hidebutton)
 				end)
 
 				bezdar.OutlineItems = Instance.new("Frame", bezdar.Main)
-				bezdar.OutlineItems.Name = "blackline"
+				bezdar.OutlineItems.Name = "blackitemlone"
 				bezdar.OutlineItems.ZIndex = 7
 				bezdar.OutlineItems.Size = bezdar.ItemsFrame.Size + UDim2.fromOffset(4, 4)
 				bezdar.OutlineItems.BorderSizePixel = 0
@@ -2968,7 +2968,7 @@ function library:CreateWindow(name, size, hidebutton)
 				end)
 
 				bezdar.BlackOutlineItems = Instance.new("Frame", bezdar.Main)
-				bezdar.BlackOutlineItems.Name = "blackline"
+				bezdar.BlackOutlineItems.Name = "black"
 				bezdar.BlackOutlineItems.ZIndex = 7
 				bezdar.BlackOutlineItems.Size = bezdar.ItemsFrame.Size + UDim2.fromOffset(- 2, - 2)
 				bezdar.BlackOutlineItems.BorderSizePixel = 0
